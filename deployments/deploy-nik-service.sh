@@ -1,8 +1,9 @@
 #!/bin/bash
 DEPLOYMENT="nik-deployment"
 REPLICAS=1
+IMAGE=nik:0.0.1-SNAPSHOT
 
-vars=(REPLICAS)
+vars=(REPLICAS IMAGE)
 
 # replaces placeholders in yaml file. Name of variable must be equal to placeholder.
 replaceVars() {

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nik
-          image: nik:0.0.1-SNAPSHOT
+          image: {{IMAGE}}
           ports:
             - containerPort: 8080
 ---
