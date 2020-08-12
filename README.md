@@ -1,2 +1,2 @@
 # How to Deploy
-Run bash script _/deployments/deploy-nik-service.bash_
+Run bash script _/deployments/deploy-nik-service.sh_
