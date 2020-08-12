@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nik
 spec:
-  replicas: 1
+  replicas: {{REPLICAS}}
   selector:
     matchLabels:
       app: nik
@@ -19,16 +19,15 @@ spec:
           image: nik:0.0.1-SNAPSHOT
           ports:
             - containerPort: 8080
-#---
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  name: nik-svc
-#spec:
-#  ports:
-#    - port: 80
-#      targetPort: 8080
-#      protocol: TCP
-#      name: http
-#  selector:
-#    app: nik
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nik-svc
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app: nik
