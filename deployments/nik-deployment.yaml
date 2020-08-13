@@ -25,9 +25,11 @@ kind: Service
 metadata:
   name: nik-svc
 spec:
-  ports:
-    - port: 8080
-      protocol: TCP
-      name: http
   selector:
     app: nik
+  type: NodePort
+  ports:
+    - port: 8080
+      nodePort: 30148
+      protocol: TCP
+      name: http
