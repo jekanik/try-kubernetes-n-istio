@@ -18,6 +18,7 @@
 
     <modules>
         <module>service-one</module>
+        <module>service-two</module>
     </modules>
 
     <description>Docker Spring Boot</description>
