@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
-public class NikApplication {
+public class ServiceOneApp {
 
     @RequestMapping("/")
     public String home() {
-        return "Hello Docker World";
+        return "Service One, hello world!";
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(NikApplication.class, args);
+        SpringApplication.run(ServiceOneApp.class, args);
     }
 }

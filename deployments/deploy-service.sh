@@ -1,7 +1,7 @@
 #!/bin/bash
-DEPLOYMENT="nik-deployment"
-REPLICAS=1
-IMAGE=nik:0.0.1-SNAPSHOT
+DEPLOYMENT=$1
+REPLICAS=$2
+IMAGE=$3
 
 vars=(REPLICAS IMAGE)
 

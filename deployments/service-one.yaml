@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nik-deployment
+  name: service-one
   labels:
-    app: nik
+    app: service-one
 spec:
   replicas: {{REPLICAS}}
   selector:
     matchLabels:
-      app: nik
+      app: service-one
   template:
     metadata:
       labels:
-        app: nik
+        app: service-one
     spec:
       containers:
-        - name: nik
+        - name: service-one
           image: {{IMAGE}}
           ports:
             - containerPort: 8080
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nik-svc
+  name: service-one
 spec:
   selector:
-    app: nik
+    app: service-one
   type: NodePort
   ports:
     - port: 8080
