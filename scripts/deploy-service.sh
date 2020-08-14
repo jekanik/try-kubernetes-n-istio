@@ -2,8 +2,9 @@
 DEPLOYMENT=$1
 REPLICAS=$2
 IMAGE=$3
+PORT=$4
 
-vars=(REPLICAS IMAGE)
+vars=(DEPLOYMENT REPLICAS IMAGE PORT)
 
 # replaces placeholders in yaml file. Name of variable must be equal to placeholder.
 replaceVars() {
@@ -15,7 +16,7 @@ replaceVars() {
   echo $result
 }
 
-sed "$(replaceVars)" $DEPLOYMENT.yaml | kubectl apply -f -
+sed "$(replaceVars)" service.yaml | kubectl apply -f -
 
 READY=""
 while [ "$READY" != "${REPLICAS}/${REPLICAS}" ]; do
