@@ -8,4 +8,4 @@ Run _scripts/delete.sh_ to delete services.\
 
 ### Tested on env
 macOs **Mojave** MacBook Pro.\
-Docker Desktop 2.3.0.4 (46911).\
+Docker Desktop 2.3.0.4 (46911).
