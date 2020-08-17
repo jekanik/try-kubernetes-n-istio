@@ -2,9 +2,8 @@
 DEPLOYMENT=$1
 REPLICAS=$2
 IMAGE=$3
-PORT=$4
 
-vars=(DEPLOYMENT REPLICAS IMAGE PORT)
+vars=(DEPLOYMENT REPLICAS IMAGE)
 
 # replaces placeholders in yaml file. Name of variable must be equal to placeholder.
 replaceVars() {
@@ -25,3 +24,5 @@ while [ "$READY" != "${REPLICAS}/${REPLICAS}" ]; do
   sleep 3s
 done
 echo "Deploy is done"
+
+printf "Verification request: $(curl -sS "http://localhost:80/${DEPLOYMENT}")\n\n"

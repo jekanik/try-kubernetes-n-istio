@@ -35,9 +35,28 @@ metadata:
 spec:
   selector:
     app: {{DEPLOYMENT}}
-  type: NodePort
   ports:
     - port: 8080
-      nodePort: {{PORT}}
       protocol: TCP
       name: http
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{DEPLOYMENT}}
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - nik-gwy
+  http:
+    - match:
+        - uri:
+            prefix: /{{DEPLOYMENT}}
+      rewrite:
+        uri: "/"
+      route:
+        - destination:
+            host: {{DEPLOYMENT}}
+            port:
+              number: 8080
