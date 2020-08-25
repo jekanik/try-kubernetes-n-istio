@@ -29,7 +29,7 @@ public class ServiceOneApp {
                                  .build();
 
         var response = CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
-        log.info("Response: {}", response);
+        log.info("Response: {}, headers: {}, body: {}", response, response.headers(), response.body());
 
         return "Service One, hello world!";
     }
