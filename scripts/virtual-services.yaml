@@ -1,0 +1,51 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: service-one
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - nik-gwy
+  http:
+    - match:
+        - uri:
+            exact: /service-one
+      rewrite:
+        uri: "/"
+      route:
+        - destination:
+            host: service-one
+            port:
+              number: 80
+    - match:
+        - uri:
+            exact: /service-one/ping
+      rewrite:
+        uri: "/ping"
+      route:
+        - destination:
+            host: service-one
+            port:
+              number: 80
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: service-two
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - nik-gwy
+  http:
+    - match:
+        - uri:
+            exact: /service-two
+      rewrite:
+        uri: "/"
+      route:
+        - destination:
+            host: service-two
+            port:
+              number: 80
