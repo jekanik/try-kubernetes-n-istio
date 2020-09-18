@@ -14,7 +14,7 @@ spec:
       labels:
         app: {{DEPLOYMENT}}
       annotations:
-        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+        sidecar.istio.io/inject: "true"
         prometheus.io/scrape: "true"
         prometheus.io/path: "/metrics"
         prometheus.io/port: "8080"
@@ -39,7 +39,6 @@ spec:
   selector:
     app: {{DEPLOYMENT}}
   ports:
-    - port: 80
-      targetPort: 8080
+    - port: 8080
       protocol: TCP
       name: http

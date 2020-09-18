@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Sidecar
+metadata:
+  name: ratings
+  namespace: default
+spec:
+  workloadSelector:
+    labels:
+      app: service-one
+  ingress:
+  - port:
+      number: 80
+      protocol: HTTP
+      name: somename
+    hosts:
+      - "default/*"
+  egress:
+  - port:
+      number: 8080
+      protocol: HTTP
+      name: egresshttp
+    hosts:
+      - "default/*"
+  - hosts:
+    - "default/*"

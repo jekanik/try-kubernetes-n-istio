@@ -17,7 +17,7 @@ spec:
         - destination:
             host: service-one
             port:
-              number: 80
+              number: 8080
     - match:
         - uri:
             exact: /service-one/ping
@@ -27,7 +27,7 @@ spec:
         - destination:
             host: service-one
             port:
-              number: 80
+              number: 8080
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -48,4 +48,4 @@ spec:
         - destination:
             host: service-two
             port:
-              number: 80
+              number: 8080

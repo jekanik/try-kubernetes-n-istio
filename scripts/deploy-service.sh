@@ -12,7 +12,7 @@ replaceVars() {
     result+="s/{{${var}}}/${!var}/g; "
   done
 
-  echo $result
+  echo "$result"
 }
 
 sed "$(replaceVars)" service.yaml | kubectl apply -f -
