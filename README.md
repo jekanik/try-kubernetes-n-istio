@@ -1,5 +1,5 @@
 ### Preconditions
-_mvn_ and _kubectl_ must be available on your machine.
+_mvn_, _kubectl_ and _istioctl_ must be available on your machine.
 
 ### How to run
 Run _scripts/build-images.sh_ to create images for two services.\
